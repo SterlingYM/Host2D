@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 
 import pandas as pd
-
+import warnings
 from scipy.optimize import minimize
 from scipy.interpolate import SmoothBivariateSpline, LSQBivariateSpline
 from scipy.interpolate import RegularGridInterpolator
@@ -51,8 +51,9 @@ def rolling_median_2D_MC(x_grid,y_grid,
     z_binned_all,z_binned_all_Ndata = zip(*res)
     
     # take the average of all the bootstrap realizations
-    z_binned = np.nanmean(z_binned_all,axis=0)
-    z_binned_Ndata = np.nanmean(z_binned_all_Ndata,axis=0)
+    with warnings.catch_warnings(action='ignore'):
+        z_binned = np.nanmean(z_binned_all,axis=0)
+        z_binned_Ndata = np.nanmean(z_binned_all_Ndata,axis=0)
     
     # generate the domain function for the map
     domain_func = get_domain_func(x_grid,y_grid,z_binned)
