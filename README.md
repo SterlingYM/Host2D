@@ -1,4 +1,10 @@
 # Host2D
+
+
+
+[![DOI](https://zenodo.org/badge/974973360.svg)](https://doi.org/10.5281/zenodo.17329280)
+
+
 An example implementation of Host2D model for SN Ia post-standardization residual (Murakami et al. 2025).
 This model uses Scipy's LSQBivariateSpline to model the Hubble residuals over 2D surface (SN color -- host tracer space) to perform a continuous, color-dependent and host-dependent correction.
 
